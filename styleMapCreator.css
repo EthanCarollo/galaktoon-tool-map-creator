@@ -194,4 +194,9 @@ body{
     background-color: aqua;
 }
 
+#UploadTileToFile{
+    padding: 1vh;
+    cursor: pointer;
+}
+
 /****************************/
