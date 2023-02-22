@@ -1,5 +1,4 @@
 let tilesData = [];
-let tempNewTiles = [];
 let countTile = 0;
 let imageIsLoaded = false;
 
@@ -7,7 +6,17 @@ const loadAssets = () => {
     fetch("./json/tiles.json")
         .then(rep => rep.json())
         .then(rep => { 
-                tilesData = rep.data;  
+                tilesData = rep.data;                
+        })
+        .catch(error => { 
+            throw new Error("there is an issue with the ressource path");
+        })
+    fetch("./json/newTiles.json")
+        .then(rep => rep.json())
+        .then(rep => { 
+                for(let i = 0; i < rep.data.length;i++){
+                    tilesData.push(rep.data[i]);  
+                }
                 loadImageAssets();                
         })
         .catch(error => { 
@@ -32,6 +41,7 @@ const succeedLoadImage = () => {
 }
 
 const createDOM = () => {
+    document.getElementById("innerTilesList").innerHTML = " "
     let erase = document.getElementById("innerTilesList").appendChild(document.createElement("image"))
     erase.classList.add("tile")
     erase.addEventListener("mouseup", () => {

@@ -211,6 +211,10 @@ body{
     cursor: pointer;
 }
 
+.placehold{
+    margin: 1vh;
+}
+
 #windowUpload{
     display: flex;
     flex-direction: column;

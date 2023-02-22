@@ -1,11 +1,19 @@
 const fs = require('fs');
-const objectid = require('objectid')
 
-const inputFile = document.getElementById("tileUpload")
-const switchElement = document.getElementById("switchElem")
+const inputFile = document.getElementById("tileUpload");
+const switchElement = document.getElementById("switchElem");
+const button = document.getElementById("UploadTileToFile");
 
-inputFile.addEventListener("change", (file) => {
-  uploadFile(inputFile.files[0].path)
+button.addEventListener("click", (file) => {
+  let uploadName = document.getElementById("nameOfTile").value
+  let spaceVerificator = uploadName.match(" ")
+  console.log(spaceVerificator)
+  if(uploadName.length > 3 && spaceVerificator === null)
+  {
+    uploadFile(inputFile.files[0].path, uploadName)
+  }else{
+    console.log("file name too small or don't correspond to the standard")
+  }
 })
 
 let toggleUpload = false;
@@ -21,9 +29,9 @@ switchElement.addEventListener("click",() => {
   }
 })
 
-const uploadFile = (pathFile) => {
+const uploadFile = (pathFile, nameFile) => {
   console.log(pathFile)
-  let nameOfFile = objectid();
+  let nameOfFile = nameFile;
   let newPath = ("./assets/tiles/temp/" + nameOfFile + ".png")
   let testReadStream = fs.createReadStream(pathFile)
   let newFile = fs.createWriteStream(newPath)
@@ -31,13 +39,56 @@ const uploadFile = (pathFile) => {
     if(err) throw err
     console.log("start to do")
   })*/
-  let chunks = 0;
-  testReadStream.on('data', (chunk) => {
-    chunks += chunk.length;
-  })
-  testReadStream.on('close', () => {
-    console.log("it's uploaded")
-  })
+  fs.stat(newPath, function(err) {
+    if (err) {
+      let chunks = 0;
+      testReadStream.on('data', (chunk) => {
+        chunks += chunk.length;
+      })
+      testReadStream.on('close', () => {
+        console.log("it's uploaded")
+      })
+    
+      testReadStream.pipe(newFile)
+      testReadStream.on("end", () => {
+        let newTile = {
+          id : "0",
+          path : "assets/tiles/temp/" + nameOfFile + ".png",
+          image : "null",
+          collider : false,
+          canConstruct : "true",
+          isAnObject : false,
+          xWidth : 1,
+          yWidth : 1,
+          type : "useless",
+          destructible : "false",
+          sizeXonConstruct : 1
+        }
+        writeNewJsonTempTile(newTile)
+      })
+      
+    }else{
+      console.log("exist already")
+    }
+  });
+}
 
-  testReadStream.pipe(newFile)
+const writeNewJsonTempTile = (newFile) => {
+    
+  
+  fetch("./json/newTiles.json")
+        .then(rep => rep.json())
+        .then(rep => { 
+                  let newTilesToWrite = { data : rep.data}
+                  newTilesToWrite.data.push(newFile)
+                  newTilesToWrite = JSON.stringify(newTilesToWrite)
+                  fs.writeFile("./json/newTiles.json", newTilesToWrite, (err) => {
+                    if(err){
+                      console.log(err)
+                    }
+                    setTimeout(() => {
+                      loadAssets()
+                    });
+                  })              
+        })
 }
