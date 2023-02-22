@@ -18,7 +18,9 @@ function draw(){
   if(imageIsLoaded === true){
     displayMap();
   }
-  inputManager()
+  if(toggleUpload === false){
+    inputManager()
+  }
 }
 
 function inputManager() {

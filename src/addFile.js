@@ -8,11 +8,17 @@ inputFile.addEventListener("change", (file) => {
   uploadFile(inputFile.files[0].path)
 })
 
+let toggleUpload = false;
 
 switchElement.addEventListener("click",() => {
   console.log("clicked")
   document.getElementById("windowLayer").classList.toggle("isActive");
   document.getElementById("windowUpload").classList.toggle("isActive");
+  if(toggleUpload === true){
+    toggleUpload = false
+  }else{
+    toggleUpload = true;
+  }
 })
 
 const uploadFile = (pathFile) => {
