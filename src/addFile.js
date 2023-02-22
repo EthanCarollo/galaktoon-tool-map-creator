@@ -31,7 +31,7 @@ switchElement.addEventListener("click",() => {
 
 const uploadFile = (pathFile, nameFile) => {
   let nameOfFile = nameFile;
-  let newPath = ("./assets/tiles/temp/" + nameOfFile + ".png")
+  let newPath = ("./resources/app/assets/tiles/temp/" + nameOfFile + ".png") // only for distributable version
 
   fs.stat(newPath, function(err) {
     if (err) {
@@ -73,13 +73,13 @@ const uploadFile = (pathFile, nameFile) => {
 const writeNewJsonTempTile = (newFile) => {
   resetInput()
   
-  fetch("./json/newTiles.json")
+  fetch("json/newTiles.json") // only for prod
         .then(rep => rep.json())
         .then(rep => { 
                   let newTilesToWrite = { data : rep.data}
                   newTilesToWrite.data.push(newFile)
                   newTilesToWrite = JSON.stringify(newTilesToWrite)
-                  fs.writeFile("./json/newTiles.json", newTilesToWrite, (err) => {
+                  fs.writeFile("resources/app/json/newTiles.json", newTilesToWrite, (err) => {
                     if(err){
                       console.log(err)
                     }
