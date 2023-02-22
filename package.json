@@ -12,6 +12,7 @@
     "electron": "^23.1.0"
   },
   "dependencies": {
-    "objectid": "^3.2.1"
+    "objectid": "^3.2.1",
+    "request": "^2.88.2"
   }
 }

@@ -7,12 +7,12 @@ const button = document.getElementById("UploadTileToFile");
 button.addEventListener("click", (file) => {
   let uploadName = document.getElementById("nameOfTile").value
   let spaceVerificator = uploadName.match(" ")
-  console.log(spaceVerificator)
-  if(uploadName.length > 3 && spaceVerificator === null)
+  if(uploadName.length > 3 && spaceVerificator === null && document.getElementById("yHeightOfTile").value > 0)
   {
+    document.getElementById("errorHandle").innerHTML = "UPLOADING"
     uploadFile(inputFile.files[0].path, uploadName)
   }else{
-    console.log("file name too small or don't correspond to the standard")
+    document.getElementById("errorHandle").innerHTML = "Error with the name or the height"
   }
 })
 
@@ -30,17 +30,14 @@ switchElement.addEventListener("click",() => {
 })
 
 const uploadFile = (pathFile, nameFile) => {
-  console.log(pathFile)
   let nameOfFile = nameFile;
   let newPath = ("./assets/tiles/temp/" + nameOfFile + ".png")
-  let testReadStream = fs.createReadStream(pathFile)
-  let newFile = fs.createWriteStream(newPath)
-  /*fs.writeFile(pathFile, chunk, (err) => {
-    if(err) throw err
-    console.log("start to do")
-  })*/
+
   fs.stat(newPath, function(err) {
     if (err) {
+      let testReadStream = fs.createReadStream(pathFile)
+      let newFile = fs.createWriteStream(newPath)
+      
       let chunks = 0;
       testReadStream.on('data', (chunk) => {
         chunks += chunk.length;
@@ -59,7 +56,7 @@ const uploadFile = (pathFile, nameFile) => {
           canConstruct : "true",
           isAnObject : false,
           xWidth : 1,
-          yWidth : 1,
+          yWidth : document.getElementById("yHeightOfTile").value,
           type : "useless",
           destructible : "false",
           sizeXonConstruct : 1
@@ -68,13 +65,13 @@ const uploadFile = (pathFile, nameFile) => {
       })
       
     }else{
-      console.log("exist already")
+      document.getElementById("errorHandle").innerHTML = "File Already Exist, select another name"
     }
   });
 }
 
 const writeNewJsonTempTile = (newFile) => {
-    
+  resetInput()
   
   fetch("./json/newTiles.json")
         .then(rep => rep.json())
@@ -86,9 +83,16 @@ const writeNewJsonTempTile = (newFile) => {
                     if(err){
                       console.log(err)
                     }
+                    document.getElementById("errorHandle").innerHTML = "UPLOADED"
                     setTimeout(() => {
                       loadAssets()
-                    });
+                    }, 250)
                   })              
         })
+}
+
+const resetInput = () => {
+  inputFile.value = []
+  document.getElementById("nameOfTile").value = ""
+  document.getElementById("yHeightOfTile").value = ""
 }

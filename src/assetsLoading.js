@@ -1,4 +1,5 @@
 let tilesData = [];
+let addedTile = [];
 let countTile = 0;
 let imageIsLoaded = false;
 
@@ -17,6 +18,7 @@ const loadAssets = () => {
                 for(let i = 0; i < rep.data.length;i++){
                     tilesData.push(rep.data[i]);  
                 }
+                addedTile = JSON.stringify(rep);
                 loadImageAssets();                
         })
         .catch(error => { 

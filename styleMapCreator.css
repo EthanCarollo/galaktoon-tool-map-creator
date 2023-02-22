@@ -215,6 +215,12 @@ body{
     margin: 1vh;
 }
 
+#errorHandle{
+    text-align: center;
+    margin: 1vh;
+}
+
+
 #windowUpload{
     display: flex;
     flex-direction: column;

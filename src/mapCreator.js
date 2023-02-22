@@ -1,3 +1,5 @@
+
+
 let mapLayers = {
     groundLayer : [
         [ 0, 0, 0, 0, 0, 0, 0, 0],
@@ -120,5 +122,9 @@ const exportMapInJSON = () => {
     a.href = URL.createObjectURL(file);
     a.download = "mapLayers.json";
     a.click();
-
+    var ab = document.createElement("a");
+    var file = new Blob([addedTile], {type: "text/plain"});
+    ab.href = URL.createObjectURL(file);
+    ab.download = "tileInformation.json";
+    ab.click();
 }
