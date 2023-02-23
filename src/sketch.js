@@ -14,6 +14,10 @@ function setup() {
     resizeArrayMap()
   }
 
+  function windowResized() {
+    resizeCanvas(window.innerWidth /1.335, window.innerHeight / 1.4);
+  }
+
 function draw(){
   if(imageIsLoaded === true){
     displayMap();
