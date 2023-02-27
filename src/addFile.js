@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path')
 
 const inputFile = document.getElementById("tileUpload");
 const switchElement = document.getElementById("switchElem");
@@ -20,19 +21,32 @@ let toggleUpload = false;
 
 switchElement.addEventListener("click",() => {
   console.log("clicked")
+  console.log(getPath())
+  switchElement.classList.toggle("active");
   document.getElementById("windowLayer").classList.toggle("isActive");
   document.getElementById("windowUpload").classList.toggle("isActive");
   if(toggleUpload === true){
-    toggleUpload = false
+    toggleUpload = false;
+    tint(255,255)
   }else{
     toggleUpload = true;
+    tint(255,125)
   }
 })
 
+const getPath = () => {
+  switch(process.platform){
+    case "win32" : 
+      return path.join(process.env.APPDATA)
+    case 'darwin' :
+      return path.join(process.env.HOME, "Library", "Application Support")
+  }
+}
+
 const uploadFile = (pathFile, nameFile) => {
   let nameOfFile = nameFile;
-  let newPath = ("./assets/tiles/temp/" + nameOfFile + ".png")
-
+  let newPath = (getPath() + "/GalaktoonMap/" + nameOfFile + ".png") // only for distributable version
+  createDir();
   fs.stat(newPath, function(err) {
     if (err) {
       let testReadStream = fs.createReadStream(pathFile)
@@ -50,7 +64,7 @@ const uploadFile = (pathFile, nameFile) => {
       testReadStream.on("end", () => {
         let newTile = {
           id : "0",
-          path : "assets/tiles/temp/" + nameOfFile + ".png",
+          path : newPath,
           image : "null",
           collider : false,
           canConstruct : "true",
@@ -73,14 +87,15 @@ const uploadFile = (pathFile, nameFile) => {
 const writeNewJsonTempTile = (newFile) => {
   resetInput()
   
-  fetch("./json/newTiles.json")
+  fetch(getPath() + "/GalaktoonMap/newTiles.json") // only for prod
         .then(rep => rep.json())
         .then(rep => { 
                   let newTilesToWrite = { data : rep.data}
                   newTilesToWrite.data.push(newFile)
                   newTilesToWrite = JSON.stringify(newTilesToWrite)
-                  fs.writeFile("./json/newTiles.json", newTilesToWrite, (err) => {
+                  fs.writeFile(getPath() + "/GalaktoonMap/newTiles.json", newTilesToWrite, (err) => {
                     if(err){
+                      console.log("Failed to write on new tiles json")
                       console.log(err)
                     }
                     document.getElementById("errorHandle").innerHTML = "UPLOADED"

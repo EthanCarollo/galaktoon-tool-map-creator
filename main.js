@@ -8,6 +8,7 @@ const path = require('path')
 const createWindow = () => {
   // Création de la fenêtre de navigateur.
   const mainWindow = new BrowserWindow({
+    icon: __dirname + '/assets/icon.ico',
     width: 800,
     height: 600,
     webPreferences: {

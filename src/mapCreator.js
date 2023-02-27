@@ -22,13 +22,15 @@ let mapLayers = {
     ]
 }
 
+let canDisplayGround = true;
+let canDisplayObject = true;
 
 let selectedLayer = "groundLayer"
 
 let xMapPos = 0;
 let yMapPos = 0;
 
-let tileSelected = 0;
+let tileSelected = -2;
 
 let sizeMap = 20;
 let tileSize = 50;
@@ -50,14 +52,30 @@ const resizeArrayMap = (size = sizeMap) => {
 
 const displayMap = () => {
     background(225)
-    displayLayer(mapLayers.groundLayer)
-    displayLayer(mapLayers.objectLayer)
+    if(canDisplayGround===true){
+        displayLayer(mapLayers.groundLayer);
+    }
+    if(canDisplayObject===true){
+        displayLayer(mapLayers.objectLayer);
+    }
 }
 
 const createLayersDisplay = () => {
     // DISGRACEFUL SRY RUSHING TIME
     let layerList = document.getElementById("innerLayerList")
-    layerList.innerHTML = " "
+    layerList.innerHTML = " ";
+
+    let layergroundLayerEyes = layerList.appendChild(document.createElement("div"))
+    layergroundLayerEyes.classList.add("eyeOpen");
+    layergroundLayerEyes.addEventListener("mouseup", () => {
+        layergroundLayerEyes.classList.toggle("unactive");
+        if(canDisplayGround === true){
+            canDisplayGround = false;
+        }else{
+            canDisplayGround = true;
+        }
+    })
+
     let layergroundLayer = layerList.appendChild(document.createElement("div"))
     layergroundLayer.innerHTML = "<h1>GROUND LAYER</h1>"
     layergroundLayer.classList.add("layer")
@@ -67,6 +85,18 @@ const createLayersDisplay = () => {
         layerobjectLayer.classList.remove("active");
         selectedLayer = "groundLayer"
     })
+
+    let layerobjectLayerEyes = layerList.appendChild(document.createElement("div"))
+    layerobjectLayerEyes.classList.add("eyeOpen");
+    layerobjectLayerEyes.addEventListener("mouseup", () => {
+        layerobjectLayerEyes.classList.toggle("unactive");
+        if(canDisplayObject === true){
+            canDisplayObject = false;
+        }else{
+            canDisplayObject = true;
+        }
+    })
+
     let layerobjectLayer = layerList.appendChild(document.createElement("div"))
     layerobjectLayer.innerHTML = "<h1>COLLIDER & INTERACTION LAYER</h1>"
     layerobjectLayer.classList.add("layer")
@@ -108,11 +138,7 @@ const getTileWithScreenPosition = (x, y) => {
 
 document.getElementById("mapSize").addEventListener("input", () => {
     sizeMap = document.getElementById("mapSize").value
-    console.log(sizeMap)
     resizeArrayMap(document.getElementById("mapSize").value)
-})
-document.getElementById("mapZoom").addEventListener("input", () => {
-    tileSize = document.getElementById("mapZoom").value
 })
 
 const exportMapInJSON = () => {
