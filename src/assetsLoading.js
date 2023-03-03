@@ -12,31 +12,17 @@ const createDir = () => {
 
 const loadAssets = () => {
     createDir();
-    fetch("./json/tiles.json")
+    fetch(getPath() + "/GalaktoonMap/newTiles.json")
         .then(rep => rep.json())
         .then(rep => { 
             tilesData = rep.data
-            loadNextAsset()
+            loadImageAssets();
         })
         .catch(error => { 
             throw new Error("there is an issue with the ressource path");
         })
 }
 
-const loadNextAsset = () => {
-    fetch(getPath() + "/GalaktoonMap/newTiles.json")
-        .then(rep => rep.json())
-        .then(rep => { 
-                for(let i = 0; i < rep.data.length;i++){
-                    tilesData.push(rep.data[i]);  
-                }
-                addedTile = JSON.stringify(rep);
-                loadImageAssets();                
-        })
-        .catch(error => { 
-            throw new Error("there is an issue with the ressource path");
-        })
-}
 
 const loadImageAssets = () => {
 
@@ -64,7 +50,7 @@ const createDOM = () => {
     })
     let erase = document.getElementById("innerTilesList").appendChild(document.createElement("image"))
     erase.classList.add("tile")
-    erase.style.backgroundImage = 'url("./assets/tiles/gomme.png")';
+    erase.style.backgroundImage = 'url("./assets/tiles/gomme.webp")';
     erase.addEventListener("mouseup", () => {
         callbackTiles(-1);
     })
@@ -76,8 +62,18 @@ const createDOM = () => {
         image.addEventListener("mouseup", () => {
             callbackTiles(j);
         })
+        image.addEventListener('contextmenu', function(ev) {
+            ev.preventDefault();
+            deleteSelectedTiles(j);
+            return false;
+        }, false);
     }
     createLayersDisplay()
+}
+
+const deleteSelectedTiles = (id) => {
+    alert("Will delete : " + id);
+    deleteTile(id);
 }
 
 const callbackTiles = (id) => {

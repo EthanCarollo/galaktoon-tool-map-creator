@@ -1,5 +1,8 @@
 // DISCLAIMER, THIS IS A TEMP CODE FOR THE MAP CREATOR TOOLS, IM LITERALLY RUSHING THIS TOOL.. SRY I WILL IMPROVE THAT
 
+let animationIndex = 0;
+let maxAnimationIndex = 3;
+
 function preload() {
     loadAssets();
   }
@@ -22,21 +25,28 @@ function setup() {
 function draw(){
   if(imageIsLoaded === true){
     displayMap();
+    upAnimationIndex();
   }
-  if(imageIsLoaded === true && toggleUpload === false && isInCanvas() === false){
+  if(imageIsLoaded === true && isInCanvas() === false){
     inputManager();
     previOnMap();
   }
 }
+
+const upAnimationIndex = () => {
+  animationIndex += 0.08;
+  if(animationIndex >= maxAnimationIndex){
+    animationIndex = 0;
+  }
+}
+
 
 function previOnMap(){
   let tileOnMouse = getTileWithScreenPosition(mouseX - xMapPos, mouseY - yMapPos);
   if(tileOnMouse === false || mouseY > canvasSize[1] || mouseX > canvasSize[0]){
     return;
   }
-  tint(255,125)
   displayTiles(tileOnMouse[0], tileOnMouse[1], tileSize, tileSelected)
-  tint(255,255)
 }
 
 
@@ -47,6 +57,7 @@ let backTab = [];
 let mouseGestion = false;
 
 function inputManager() {
+  // ctrl z frr
   if(keyIsDown(17) && keyIsDown(90))
   {
     if(canCtrlZ === true){
@@ -56,9 +67,6 @@ function inputManager() {
     return;
   }else{
     canCtrlZ = true;
-
-
-
   }
 
   // ! ----------------------

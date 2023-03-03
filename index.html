@@ -23,8 +23,14 @@
         
       </div>
       <h1>CHANGE MAP SIZE</h1>
+      
       <input type="number" id="mapSize" name="mapSize" min="10" max="250" value = "20">
-      <button onclick="exportMapInJSON()" class = "buttonExportMap">EXPORT MAP</button>
+      <h1>TOGGLE  RECT STROKE </h1>
+      <div class = "switcherElem" id ="togglingStroke">
+        <div class = "pointerSwipe"></div>
+      </div>
+      <button onclick="exportMapAsANewJsonInPath()" class = "buttonExportMap">EXPORT MAP</button>
+      <button onclick="openFolderMap()" class = "buttonExportMap">OPEN EXPORT FOLDER</button>
     </div>
     <div class = "listTiles">
       <h1>Tiles</h1>
@@ -36,8 +42,14 @@
   <div class ="uploadFileWindow" id = "windowUpload">
     <h1>ADD NEW TILE !</h1>
     <input type="file" id = "tileUpload">
+    <h1>tile name</h1>
     <input type="name" placeholder="tileName" class = "placehold" id="nameOfTile" accept="image/png, image/jpeg">
+    <h1>y height</h1>
     <input type="number" placeholder="yHeight" class = "placehold" id="yHeightOfTile" accept="image/png, image/jpeg">
+    <h1 id = "textanimate">tile isn't animated</h1>
+    <div class = "switcherElem" id ="togglingAnimator">
+      <div class = "pointerSwipe"></div>
+    </div>
     <h1 id ="errorHandle"></h1>
     <button id = "UploadTileToFile">Upload !</button>
   </div>

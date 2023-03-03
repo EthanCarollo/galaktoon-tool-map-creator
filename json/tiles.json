@@ -4,6 +4,7 @@
         {
             "id" : "0",
             "path" : "assets/tiles/tilespaceshiptest.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "true",
@@ -17,6 +18,7 @@
         {
             "id" : "1",
             "path" : "assets/tiles/spaceShipTiles/middleWall.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -30,6 +32,7 @@
         {
             "id" : "2",
             "path" : "assets/tiles/furnitures/testCanap1.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -45,6 +48,7 @@
         {
             "id" : "3",
             "path" : "assets/tiles/furnitures/testCanap3.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -60,6 +64,7 @@
         {
             "id" : "4",
             "path" : "assets/tiles/furnitures/furnituresDead.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -73,6 +78,7 @@
         {
             "id" : "5",
             "path" : "assets/tiles/tilespaceshiptest.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -86,6 +92,7 @@
         {
             "id" : "6",
             "path" : "assets/tiles/furnitures/craftingtable.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -99,6 +106,7 @@
         {
             "id" : "7",
             "path" : "assets/tiles/furnitures/furnituresSpecAF.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -112,6 +120,7 @@
         {
             "id" : "8",
             "path" : "assets/tiles/dirt2.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -125,6 +134,7 @@
         {
             "id" : "9",
             "path" : "assets/tiles/dirt1.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -138,6 +148,7 @@
         {
             "id" : "10",
             "path" : "assets/tiles/furnitures/BuildingFurnitures.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -151,6 +162,7 @@
         {
             "id" : "11",
             "path" : "assets/tiles/furnitures/VendingMachine.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -164,6 +176,7 @@
         {
             "id" : "12",
             "path" : "assets/tiles/furnitures/chairSci.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -177,6 +190,7 @@
         {
             "id" : "13",
             "path" : "assets/tiles/furnitures/leftTabExplore.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -190,6 +204,7 @@
         {
             "id" : "14",
             "path" : "assets/tiles/furnitures/midTabExplore.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -203,6 +218,7 @@
         {
             "id" : "15",
             "path" : "assets/tiles/furnitures/rightTabExplore.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -216,6 +232,7 @@
         {
             "id" : "16",
             "path" : "assets/tiles/furnitures/testCanap1.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -229,6 +246,7 @@
         {
             "id" : "17",
             "path" : "assets/tiles/furnitures/testCanap2.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -242,6 +260,7 @@
         {
             "id" : "18",
             "path" : "assets/tiles/furnitures/testCanap3.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -255,6 +274,7 @@
         {
             "id" : "19",
             "path" : "assets/tiles/furnitures/newTable.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -268,6 +288,7 @@
         {
             "id" : "20",
             "path" : "assets/ui/popup.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -281,6 +302,7 @@
         {
             "id" : "21",
             "path" : "assets/tiles/furnitures/escalatorUp.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -294,6 +316,7 @@
         {
             "id" : "22",
             "path" : "assets/tiles/spaceShipTiles/leftWall.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -307,6 +330,7 @@
         {
             "id" : "23",
             "path" : "assets/tiles/spaceShipTiles/rightWall.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -320,6 +344,7 @@
         {
             "id" : "24",
             "path" : "assets/tiles/spaceShipTiles/fullWall.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -333,6 +358,7 @@
         {
             "id" : "25",
             "path" : "assets/tiles/spaceShipTiles/fullRightCornerWall.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -346,6 +372,7 @@
         {
             "id" : "26",
             "path" : "assets/tiles/spaceShipTiles/fullLeftCornerWall.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -359,6 +386,7 @@
         {
             "id" : "27",
             "path" : "assets/tiles/spaceShipTiles/middleWallEmpty.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -372,6 +400,7 @@
         {
             "id" : "28",
             "path" : "assets/tiles/spaceShipTiles/middleSoloWallEmpty.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -385,6 +414,7 @@
         {
             "id" : "29",
             "path" : "assets/tiles/spaceShipTiles/fullMiddleWall.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -398,6 +428,7 @@
         {
             "id" : "30",
             "path" : "assets/tiles/debugTiles/FightTiles.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -411,6 +442,7 @@
         {
             "id" : "31",
             "path" : "assets/tiles/earthTiles/herbe-5.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -424,6 +456,7 @@
         {
             "id" : "32",
             "path" : "assets/tiles/debugTiles/backInSpaceShipTiles.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -437,6 +470,7 @@
         {
             "id" : "33",
             "path" : "assets/tiles/debugTiles/CrossCollider.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -450,6 +484,7 @@
         {
             "id" : "34",
             "path" : "assets/tiles/bobTiles/tilesGrassBob.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -463,6 +498,7 @@
         {
             "id" : "35",
             "path" : "assets/tiles/furnitures/bedFurniture.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : true,
             "canConstruct" : "false",
@@ -476,6 +512,7 @@
         {
             "id" : "36",
             "path" : "assets/ui/talkPopup.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -489,6 +526,7 @@
         {
             "id" : "37",
             "path" : "assets/tiles/earthTiles/bottom.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -502,6 +540,7 @@
         {
             "id" : "38",
             "path" : "assets/tiles/earthTiles/left.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -515,6 +554,7 @@
         {
             "id" : "39",
             "path" : "assets/tiles/earthTiles/top.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -528,6 +568,7 @@
         {
             "id" : "40",
             "path" : "assets/tiles/earthTiles/right.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -541,6 +582,7 @@
         {
             "id" : "41",
             "path" : "assets/tiles/earthTiles/top-right.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -554,6 +596,7 @@
         {
             "id" : "42",
             "path" : "assets/tiles/earthTiles/top-left.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -567,6 +610,7 @@
         {
             "id" : "43",
             "path" : "assets/tiles/earthTiles/right-top-corner.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -580,6 +624,7 @@
         {
             "id" : "44",
             "path" : "assets/tiles/earthTiles/right-bottom-corner.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -593,6 +638,7 @@
         {
             "id" : "45",
             "path" : "assets/tiles/earthTiles/left-top-corner.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -606,6 +652,7 @@
         {
             "id" : "46",
             "path" : "assets/tiles/earthTiles/left-right.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -619,6 +666,7 @@
         {
             "id" : "47",
             "path" : "assets/tiles/earthTiles/left-bottom.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -632,6 +680,7 @@
         {
             "id" : "48",
             "path" : "assets/tiles/earthTiles/left-bottom-corner.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -645,6 +694,7 @@
         {
             "id" : "49",
             "path" : "assets/tiles/earthTiles/central-grass-1.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -658,6 +708,7 @@
         {
             "id" : "50",
             "path" : "assets/tiles/earthTiles/central-grass-2.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -671,6 +722,7 @@
         {
             "id" : "50",
             "path" : "assets/tiles/earthTiles/central-grass-2.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -684,6 +736,7 @@
         {
             "id" : "50",
             "path" : "assets/tiles/spaceShipTiles/left-spaceship-wall.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -697,6 +750,7 @@
         {
             "id" : "51",
             "path" : "assets/tiles/spaceShipTiles/right-spaceship-wall.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -710,6 +764,7 @@
         {
             "id" : "51",
             "path" : "assets/tiles/spaceShipTiles/center-spaceship-wall.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -723,6 +778,7 @@
         {
             "id" : "52",
             "path" : "assets/tiles/spaceShipTiles/space-ground.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -736,6 +792,7 @@
         {
             "id" : "53",
             "path" : "assets/tiles/spaceShipTiles/space-ground-2.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -749,6 +806,7 @@
         {
             "id" : "54",
             "path" : "assets/tiles/spaceShipTiles/space-ground-3.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -762,6 +820,7 @@
         {
             "id" : "55",
             "path" : "assets/tiles/earthTiles/middle-1.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -775,6 +834,7 @@
         {
             "id" : "56",
             "path" : "assets/tiles/earthTiles/middle-1.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -788,6 +848,7 @@
         {
             "id" : "57",
             "path" : "assets/tiles/earthTiles/herbeSalatonion/coin_1/down.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -801,6 +862,7 @@
         {
             "id" : "58",
             "path" : "assets/tiles/earthTiles/herbeSalatonion/coin_1/right.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -814,6 +876,7 @@
         {
             "id" : "59",
             "path" : "assets/tiles/earthTiles/herbeSalatonion/coin_1/left.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -827,6 +890,7 @@
         {
             "id" : "60",
             "path" : "assets/tiles/earthTiles/herbeSalatonion/coin_1/top.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -840,6 +904,7 @@
         {
             "id" : "61",
             "path" : "assets/tiles/earthTiles/herbeSalatonion/coin_2/down-left.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -853,6 +918,7 @@
         {
             "id" : "62",
             "path" : "assets/tiles/earthTiles/herbeSalatonion/coin_2/down-right.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -866,6 +932,7 @@
         {
             "id" : "63",
             "path" : "assets/tiles/earthTiles/herbeSalatonion/coin_2/top-right.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -879,6 +946,7 @@
         {
             "id" : "64",
             "path" : "assets/tiles/earthTiles/herbeSalatonion/coin_2/top-left.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -892,6 +960,7 @@
         {
             "id" : "65",
             "path" : "assets/tiles/earthTiles/herbeSalatonion/coin_3/top-left.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -905,6 +974,7 @@
         {
             "id" : "66",
             "path" : "assets/tiles/earthTiles/herbeSalatonion/coin_3/top-right.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -918,6 +988,7 @@
         {
             "id" : "67",
             "path" : "assets/tiles/earthTiles/herbeSalatonion/coin_3/down-left.png",
+            "isAnimated" : false,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",
@@ -931,6 +1002,21 @@
         {
             "id" : "68",
             "path" : "assets/tiles/earthTiles/herbeSalatonion/coin_3/down-right.png",
+            "isAnimated" : false,
+            "image" : "null",
+            "collider" : false,
+            "canConstruct" : "false",
+            "isAnObject" : false,
+            "xWidth" : 1,
+            "yWidth" : 1,
+            "type" : "useless",
+            "destructible" : "false",
+            "sizeXonConstruct" : 1
+        },
+        {
+            "id" : "69",
+            "path" : "assets/tiles/testAnimation.png",
+            "isAnimated" : true,
             "image" : "null",
             "collider" : false,
             "canConstruct" : "false",

@@ -1,8 +1,11 @@
 const fs = require('fs');
 const path = require('path')
+const {shell} = require('electron');
 
 const inputFile = document.getElementById("tileUpload");
 const switchElement = document.getElementById("switchElem");
+const togglingAnimator = document.getElementById("togglingAnimator");
+const togglingStroke = document.getElementById("togglingStroke");
 const button = document.getElementById("UploadTileToFile");
 
 button.addEventListener("click", (file) => {
@@ -20,17 +23,40 @@ button.addEventListener("click", (file) => {
 let toggleUpload = false;
 
 switchElement.addEventListener("click",() => {
-  console.log("clicked")
-  console.log(getPath())
   switchElement.classList.toggle("active");
   document.getElementById("windowLayer").classList.toggle("isActive");
   document.getElementById("windowUpload").classList.toggle("isActive");
   if(toggleUpload === true){
     toggleUpload = false;
-    tint(255,255)
   }else{
     toggleUpload = true;
-    tint(255,125)
+  }
+})
+
+let isAnimated = false;
+
+togglingAnimator.addEventListener("click",() => {
+  togglingAnimator.classList.toggle("active");
+  if(isAnimated === true){
+    document.getElementById("textanimate").innerHTML = "tile isn't animated";
+    isAnimated = false;
+  }else{
+    document.getElementById("textanimate").innerHTML = "tile is animated";
+    isAnimated = true;
+  }
+})
+
+let isStroke = false;
+
+togglingStroke.addEventListener("click",() => {
+  togglingStroke.classList.toggle("active");
+  if(isStroke === true){
+    noStroke()
+    isStroke = false;
+  }else{
+    strokeWeight(2);
+        stroke(51);
+    isStroke = true;
   }
 })
 
@@ -40,6 +66,15 @@ const getPath = () => {
       return path.join(process.env.APPDATA)
     case 'darwin' :
       return path.join(process.env.HOME, "Library", "Application Support")
+  }
+}
+
+const getSpecPath = () => {
+  switch(process.platform){
+    case "win32" : 
+      return path.join(process.env.APPDATA, "GalaktoonMap", "newTiles.json")
+    case 'darwin' :
+      return path.join(process.env.HOME, "Library", "Application Support", "GalaktoonMap", "newTiles.json")
   }
 }
 
@@ -65,6 +100,7 @@ const uploadFile = (pathFile, nameFile) => {
         let newTile = {
           id : "0",
           path : newPath,
+          isAnimated : isAnimated,
           image : "null",
           collider : false,
           canConstruct : "true",
@@ -106,8 +142,53 @@ const writeNewJsonTempTile = (newFile) => {
         })
 }
 
+const exportMapAsANewJsonInPath = () => {
+  let specMap = JSON.stringify(mapLayers);
+  fs.writeFile(getPath() + "/GalaktoonMap/mapLayers.json", specMap, (err) => {
+    if(err){
+      console.log("Failed to write on new tiles json")
+      console.log(err)
+    }
+  })  
+}
+
+const openFolderMap = () => {
+  console.log("open that");
+  shell.showItemInFolder(getSpecPath());
+}
+
 const resetInput = () => {
   inputFile.value = []
   document.getElementById("nameOfTile").value = ""
   document.getElementById("yHeightOfTile").value = ""
+}
+
+const deleteTile = (id) => {
+  fetch(getPath() + "/GalaktoonMap/newTiles.json") // only for prod
+        .then(rep => rep.json())
+        .then(rep => { 
+                  let newTilesToWrite = { data : rep.data}
+                  console.log(newTilesToWrite)
+                  console.log(id)
+                  for(let i = 0; i < newTilesToWrite.data.length; i++){
+                    if(i === id){
+                      console.log("delete")
+                      newTilesToWrite.data.splice(id, 1)
+                    }
+                  }
+                  console.log(newTilesToWrite)
+                  newTilesToWrite = JSON.stringify(newTilesToWrite)
+
+      
+                  fs.writeFile(getPath() + "/GalaktoonMap/newTiles.json", newTilesToWrite, (err) => {
+                    if(err){
+                      console.log("Failed to write on new tiles json")
+                      console.log(err)
+                    }
+                    document.getElementById("errorHandle").innerHTML = "UPLOADED"
+                    setTimeout(() => {
+                      loadAssets()
+                    }, 500)
+                  })              
+        })
 }

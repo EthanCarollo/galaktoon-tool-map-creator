@@ -117,10 +117,25 @@ const displayLayer = (mapLayer) => {
 }
 
 const displayTiles = (x, y, size, id) => {
+    if(isStroke === true){
+        fill(color(255, 204, 0, 0));
+        rect(x*size + xMapPos, y*size + yMapPos, size, size);
+    }
     if(id < 0){
         return;
     }
-    image(tilesData[id].image, x*size + xMapPos, (y + (1 - tilesData[id].yWidth)) *size + yMapPos, size * tilesData[id].xWidth, size * tilesData[id].yWidth)  
+    let xPos = x*size + xMapPos;
+    let yPos = (y + (1 - tilesData[id].yWidth)) *size + yMapPos
+    if(tilesData[id].isAnimated === true){
+        imageToShow = tilesData[id].image.get(16*Math.floor(animationIndex), 0, 16, 16)
+        image(imageToShow, xPos, yPos, size * tilesData[id].xWidth, size * tilesData[id].yWidth) 
+    }else{
+        image(tilesData[id].image, xPos, yPos, size * tilesData[id].xWidth, size * tilesData[id].yWidth) 
+    } 
+    if(isStroke === true){
+        fill(color(255, 204, 0, 0));
+        rect(xPos, yPos, size, size);
+    }
 }
 
 const getTileWithScreenPosition = (x, y) => {
@@ -140,17 +155,3 @@ document.getElementById("mapSize").addEventListener("input", () => {
     sizeMap = document.getElementById("mapSize").value
     resizeArrayMap(document.getElementById("mapSize").value)
 })
-
-const exportMapInJSON = () => {
-    let jsonData = JSON.stringify(mapLayers)
-    var a = document.createElement("a");
-    var file = new Blob([jsonData], {type: "text/plain"});
-    a.href = URL.createObjectURL(file);
-    a.download = "mapLayers.json";
-    a.click();
-    var ab = document.createElement("a");
-    var file = new Blob([addedTile], {type: "text/plain"});
-    ab.href = URL.createObjectURL(file);
-    ab.download = "tileInformation.json";
-    ab.click();
-}
