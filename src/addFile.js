@@ -144,6 +144,7 @@ const writeNewJsonTempTile = (newFile) => {
 
 const exportMapAsANewJsonInPath = () => {
   let specMap = JSON.stringify(mapLayers);
+  alert("Map exported as mapLayers.json in " + getPath() + "/GalaktoonMap")
   fs.writeFile(getPath() + "/GalaktoonMap/mapLayers.json", specMap, (err) => {
     if(err){
       console.log("Failed to write on new tiles json")

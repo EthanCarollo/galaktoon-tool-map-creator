@@ -10,6 +10,11 @@ const createDir = () => {
       }
 }
 
+const createFile = () => {
+    fs.writeFileSync(getPath() + "/GalaktoonMap/newTiles.json", JSON.stringify({ data : []}) )
+    loadAssets();
+}
+
 const loadAssets = () => {
     createDir();
     fetch(getPath() + "/GalaktoonMap/newTiles.json")
@@ -19,7 +24,8 @@ const loadAssets = () => {
             loadImageAssets();
         })
         .catch(error => { 
-            throw new Error("there is an issue with the ressource path");
+            alert("Error with newTiles.json, the program will reinstall it");
+            createFile();
         })
 }
 
