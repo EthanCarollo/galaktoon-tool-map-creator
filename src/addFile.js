@@ -193,3 +193,15 @@ const deleteTile = (id) => {
                   })              
         })
 }
+
+const importMap = () => {
+  const path = getPath() + "/GalaktoonMap/mapLayers.json";
+  console.log(path)
+  fs.readFile(path, function read(err, data) {
+    if (err) {
+        throw err;
+    }
+    const content = data.toString();
+    mapLayers = JSON.parse(content);
+});
+}

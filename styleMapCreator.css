@@ -71,6 +71,9 @@ body{
 }
 
 .tile{
+    border-style: solid;
+    border-width: 0.25vh;
+    border-color: azure;
     position: relative;
     width: 10vh;
     height: 10vh;
@@ -207,7 +210,7 @@ body{
     width: 12vh;
     height: 12vh;
     right: 5%;
-    bottom: 31%;
+    bottom: 28.5%;
     text-align: center;
     color: white;
     display: flex;
