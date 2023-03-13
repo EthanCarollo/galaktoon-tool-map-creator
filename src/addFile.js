@@ -4,10 +4,13 @@ const {shell} = require('electron');
 
 const inputFile = document.getElementById("tileUpload");
 const switchElement = document.getElementById("switchElem");
+const switchDev = document.getElementById("activeDev");
 const togglingAnimator = document.getElementById("togglingAnimator");
 const togglingStroke = document.getElementById("togglingStroke");
 const togglingCollider = document.getElementById("togglingCollider");
 const button = document.getElementById("UploadTileToFile");
+
+let idSelected = 0;
 
 button.addEventListener("click", (file) => {
   let uploadName = document.getElementById("nameOfTile").value
@@ -32,6 +35,26 @@ switchElement.addEventListener("click",() => {
   }else{
     toggleUpload = true;
   }
+})
+
+let isDev = false;
+switchDev.addEventListener("click",() => {
+  switchDev.classList.toggle("active");
+  document.getElementById("windowLayer").classList.toggle("isActive");
+  document.getElementById("windowUpload").classList.toggle("isActive");
+
+  document.getElementById("idToChange").classList.toggle("isActive");
+  document.getElementById("idToChange").value = idSelected;
+  document.getElementById("buttonToChange").classList.toggle("isActive");
+  if(isDev === true){
+    isDev = false;
+  }else{
+    isDev = true;
+  }
+})
+
+document.getElementById("buttonToChange").addEventListener("click", () => {
+  changeTileAndWriteJson(idSelected);
 })
 
 let isAnimated = false;
@@ -110,7 +133,7 @@ const uploadFile = (pathFile, nameFile) => {
       testReadStream.pipe(newFile)
       testReadStream.on("end", () => {
         let newTile = {
-          id : "0",
+          id : tilesData.length + "",
           path : newPath,
           isAnimated : isAnimated,
           image : "null",
@@ -140,6 +163,41 @@ const writeNewJsonTempTile = (newFile) => {
         .then(rep => { 
                   let newTilesToWrite = { data : rep.data}
                   newTilesToWrite.data.push(newFile)
+                  for(let i = 0; i < newTilesToWrite.data.length; i++)
+                  {
+                    newTilesToWrite.data[i].id = i + "";
+                  }
+                  console.log(newTilesToWrite)
+                  newTilesToWrite = JSON.stringify(newTilesToWrite)
+                  fs.writeFile(getPath() + "/GalaktoonMap/newTiles.json", newTilesToWrite, (err) => {
+                    if(err){
+                      console.log("Failed to write on new tiles json")
+                      console.log(err)
+                    }
+                    document.getElementById("errorHandle").innerHTML = "UPLOADED"
+                    setTimeout(() => {
+                      loadAssets()
+                    }, 250)
+                  })              
+        })
+}
+
+const changeTileAndWriteJson = (id) => {
+  resetInput()
+
+  fetch(getPath() + "/GalaktoonMap/newTiles.json") // only for prod
+        .then(rep => rep.json())
+        .then(rep => { 
+                  let newTilesToWrite = { data : rep.data}
+                  for(let i = 0; i < newTilesToWrite.data.length; i++)
+                  {
+                    newTilesToWrite.data[i].id = i + "";
+                    if(id === i)
+                    {
+                      newTilesToWrite.data[i].collider = isCollider
+                    }
+                  }
+                  console.log(newTilesToWrite)
                   newTilesToWrite = JSON.stringify(newTilesToWrite)
                   fs.writeFile(getPath() + "/GalaktoonMap/newTiles.json", newTilesToWrite, (err) => {
                     if(err){

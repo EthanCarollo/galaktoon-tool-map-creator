@@ -209,7 +209,22 @@ body{
     position: absolute;
     width: 12vh;
     height: 12vh;
-    right: 5%;
+    right: 2%;
+    bottom: 28.5%;
+    text-align: center;
+    color: white;
+    display: flex;
+    font-size: 1.25vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.switchElementDev{
+    position: absolute;
+    width: 12vh;
+    height: 12vh;
+    right: 12.5%;
     bottom: 28.5%;
     text-align: center;
     color: white;
@@ -295,6 +310,18 @@ body{
     filter: invert(0.8);
     transition: all 1s;
     cursor: pointer;
+}
+
+.dontAppear{
+    display: none;
+}
+
+.dontAppear.isActive{
+    display: initial;
+}
+
+#idToChange{
+    margin: 2vh;
 }
 
 /****************************/

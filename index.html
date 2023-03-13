@@ -11,7 +11,7 @@
 
 </head>
 
-<body>
+<body id ="body">
 
   <main>
   </main>
@@ -57,11 +57,20 @@
     </div>
     <h1 id ="errorHandle"></h1>
     <button id = "UploadTileToFile">Upload !</button>
+    <input type="number" class = "dontAppear" placeholder="ID TO CHANGE" class = "placehold" id="idToChange" accept="image/png, image/jpeg">
+    <button class = "dontAppear" id = "buttonToChange">APPLY CHANGE !</button>
   </div>
 
   <div class ="switchElement">
     Toggle Upload File Menu
     <div class = "switcherElem" id ="switchElem">
+      <div class = "pointerSwipe"></div>
+    </div>
+  </div>
+
+  <div class ="switchElementDev">
+    Toggle Dev Style
+    <div class = "switcherElem" id ="activeDev">
       <div class = "pointerSwipe"></div>
     </div>
   </div>

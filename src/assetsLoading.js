@@ -34,6 +34,7 @@ const loadImageAssets = () => {
 
     for(let i = 0; i < tilesData.length; i++)
     {
+        tilesData[i].id = i + " ";
         tilesData[i].image = loadImage(tilesData[i].path, succeedLoadImage, () => {console.log(tilesData[i].path)});
     }
     createDOM()
@@ -69,8 +70,13 @@ const createDOM = () => {
             callbackTiles(j);
         })
         image.addEventListener('contextmenu', function(ev) {
-            ev.preventDefault();
-            deleteSelectedTiles(j);
+            if(isDev === false){
+                ev.preventDefault();
+                deleteSelectedTiles(j);
+            }else{
+                idSelected = j;
+                document.getElementById("idToChange").value = idSelected;
+            }
             return false;
         }, false);
     }
