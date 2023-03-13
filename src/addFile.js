@@ -6,6 +6,7 @@ const inputFile = document.getElementById("tileUpload");
 const switchElement = document.getElementById("switchElem");
 const togglingAnimator = document.getElementById("togglingAnimator");
 const togglingStroke = document.getElementById("togglingStroke");
+const togglingCollider = document.getElementById("togglingCollider");
 const button = document.getElementById("UploadTileToFile");
 
 button.addEventListener("click", (file) => {
@@ -60,6 +61,17 @@ togglingStroke.addEventListener("click",() => {
   }
 })
 
+let isCollider = false;
+
+togglingCollider.addEventListener("click",() => {
+  togglingCollider.classList.toggle("active");
+  if(isCollider === true){
+    isCollider = false;
+  }else{
+    isCollider = true;
+  }
+})
+
 const getPath = () => {
   switch(process.platform){
     case "win32" : 
@@ -102,7 +114,7 @@ const uploadFile = (pathFile, nameFile) => {
           path : newPath,
           isAnimated : isAnimated,
           image : "null",
-          collider : false,
+          collider : isCollider,
           canConstruct : "true",
           isAnObject : false,
           xWidth : 1,
